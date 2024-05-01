@@ -1,0 +1,17 @@
+{
+  "name": "youtube-backend",
+  "version": "1.0.0",
+  "description": "This is Backend Of Youtube using NODEJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "Zahidullah Mehsud",
+  "license": "ISC"
+}
