@@ -3,8 +3,14 @@ import { DB_NAME } from "../constants.js";
 
 const connectDB = async () => {
   try {
+    //Online database connection
+    // const connectionInstance = await mongoose.connect(
+    //   `${process.env.MONGODB_URL}/${DB_NAME}`
+    // );
+
+    //Local database connection
     const connectionInstance = await mongoose.connect(
-      `${process.env.MONGODB_URL}/${DB_NAME}`
+      `${process.env.LOCAL_DATABASE_URL}/${DB_NAME}`
     );
 
     console.log("Database is connected");
