@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema(
       type: String, //Cloudnary Image Url
       required: true,
     },
-    cover: {
+    coverImage: {
       type: String, //Cloudnary Image Url
     },
     password: {
@@ -36,7 +36,6 @@ const userSchema = new mongoose.Schema(
     },
     refreshToken: {
       type: String,
-      required: true,
     },
     watchHistory: [
       {
