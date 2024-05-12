@@ -16,7 +16,7 @@ const registerUser = async (req, res) => {
 
     // get existed user email or username on mongodb database
     const existedUser = await User.findOne({
-      $or: [{ email }, { password }],
+      $or: [{ email }, { username }],
     });
 
     if (existedUser) {
@@ -24,13 +24,17 @@ const registerUser = async (req, res) => {
         .status(400)
         .json({ error: "user with email and username already exist" });
     }
-    const avatarPath = req.files.avatar[0].path;
-    const coverImagePath = req.files.coverImage[0].path;
+    const avatarPath = req.files?.avatar[0]?.path;
+    var coverImagePath;
 
+    if (req.files?.coverImage != undefined) {
+      coverImagePath = req.files.coverImage[0].path;
+    }
     if (!avatarPath) {
       return res.status(400).json({ error: "Avatar file required" });
     }
     const avatar = await uploadOnCloudinary(avatarPath);
+
     const coverImage = await uploadOnCloudinary(coverImagePath);
 
     const user = await User.create({
